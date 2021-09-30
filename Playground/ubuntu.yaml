@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuuntu
+  labels:
+    name: ubuntu
+spec:
+  containers:
+  - name: ubun
+    image: ubuntu:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    volumeMounts:
+      - mountPath: /builder
+        name: "mypath" 
+    command: ["/bin/sh","-c"]
+    args: 
+      - cd /;
+        mkdir blossom;
+        sleep 9999;
+  volumes:
+    - name: mypath
+      hostPath:
+        path: /Users/andrewreid/Documents/local_projects/satis/trial/Satis/Manifest

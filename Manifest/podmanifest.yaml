@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: satis
+  labels:
+    name: satis
+spec:
+  containers:
+  - name: satis
+    image: composer/satis
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    volumeMounts:
+      - mountPath: /build
+        name: "mypath" 
+    command: ["/bin/sh","-c"]
+    args: 
+      - build ./config.json ./output;
+        sleep 9999;
+  restartPolicy: Never
+
+  volumes:
+    - name: mypath
+      hostPath:
+        path: /Users/andrewreid/Documents/local_projects/satis/trial/Satis/Manifest
+        type: Directory
+

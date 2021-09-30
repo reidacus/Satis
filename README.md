@@ -8,7 +8,7 @@ This simply takes the Satis container image which sits on Docker Hub and turns t
 **Status**: Completed
 
 ### Manifest
-This section contains the manifest file in yaml format for deploying the exact same solution to K8s instead of Docker. 
+This section contains the manifest file in yaml format for deploying the exact same solution to K8s instead of Docker. The podmanifest.yaml file was created with _kompose convert --volumes hostPath_
 **Status** : In Progress
 
 ### Helm
