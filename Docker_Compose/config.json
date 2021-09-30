@@ -1,0 +1,8 @@
+{
+  "name": "my-vendor/my-repository",
+  "homepage": "http://packages.example.org",
+  "repositories": [
+    { "type": "vcs", "url": "https://github.com/reidacus/devTask" }
+  ],
+  "require-all": true
+}

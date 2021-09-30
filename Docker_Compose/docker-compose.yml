@@ -1,0 +1,11 @@
+version: '3'
+services:
+  satis:
+    image: composer/satis
+    volumes:
+      - type: bind
+        source: .
+        target: /build
+    command: ["build", "./config.json", "./output"]
+
+
