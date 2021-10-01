@@ -13,17 +13,25 @@ spec:
         memory: "128Mi"
         cpu: "500m"
     volumeMounts:
+      - mountPath: /myinput
+        name: "myinput"
+      - mountPath: /myoutput
+        name: "myoutput"
       - mountPath: /build
-        name: "mypath" 
-    command: ["/bin/sh","-c"]
-    args: 
-      - build ./config.json ./output;
-        sleep 9999;
+        name: "build"
+    command: ["build","/myinput/config.json","/myoutput"]
   restartPolicy: Never
 
   volumes:
-    - name: mypath
+    - name: myinput
       hostPath:
-        path: /Users/andrewreid/Documents/local_projects/satis/trial/Satis/Manifest
+        path: /input
         type: Directory
-
+    - name: myoutput
+      hostPath:
+        path: /output
+        type: Directory
+    - name: build
+      hostPath:
+        path: /
+        type: Directory
